@@ -39,7 +39,7 @@ namespace TrabalhoFinalASW.Tests.Controllers
             string result = controller.Get(5);
 
             // Assert
-            Assert.AreEqual("value2", result);
+            Assert.AreEqual("value3", result);
         }
 
         [TestMethod]
