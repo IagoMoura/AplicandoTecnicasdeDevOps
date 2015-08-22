@@ -68,11 +68,11 @@ IF NOT DEFINED MSBUILD_PATH (
 echo Handling .NET Web Application deployment.
 
 :: 1. Restore NuGet packages
-:: IF /I "TrabalhoFinalASW.sln" NEQ "" (
-::   call :ExecuteCmd nuget restore "%DEPLOYMENT_SOURCE%\TrabalhoFinalASW.sln"
+IF /I "TrabalhoFinalASW.sln" NEQ "" (
+  call :ExecuteCmd nuget restore "%DEPLOYMENT_SOURCE%\TrabalhoFinalASW.sln"
 
-::   IF !ERRORLEVEL! NEQ 0 goto error
-:: )
+   IF !ERRORLEVEL! NEQ 0 goto error
+ )
 
 :: 2. Build to the temporary path
 IF /I "%IN_PLACE_DEPLOYMENT%" NEQ "1" (
