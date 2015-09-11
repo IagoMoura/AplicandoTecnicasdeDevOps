@@ -16,6 +16,7 @@ app.factory('authService', ['$http', '$q', 'localStorageService', 'ngAuthSetting
         externalAccessToken: ""
     };
 
+
     var _saveRegistration = function (registration) {
 
         _logOut();
