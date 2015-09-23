@@ -1,7 +1,6 @@
 ﻿using TrabalhoFinalASW.Entities;
 using TrabalhoFinalASW.Models;
 using Microsoft.AspNet.Identity;
-using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.Owin.Security;
 using System;
 using System.Collections.Generic;
@@ -9,25 +8,24 @@ using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using System.Web;
+using TrabalhoFinalASW.App_Start;
 
 namespace TrabalhoFinalASW
 {
 
     public class AuthRepository : IDisposable
     {
-        private AuthContext _ctx;
-
-        private UserManager<IdentityUser> _userManager;
+      
+        private UserManager<SimpleUser> _userManager;
 
         public AuthRepository()
         {
-            _ctx = new AuthContext();
-            _userManager = new UserManager<IdentityUser>(new UserStore<IdentityUser>(_ctx));
+            _userManager = new UserManager<SimpleUser>(new TrabalhoFinalASW.App_Start.UserStore());
         }
 
         public async Task<IdentityResult> RegisterUser(UserModel userModel)
         {
-            IdentityUser user = new IdentityUser
+            SimpleUser user = new SimpleUser
             {
                 UserName = userModel.UserName
             };
@@ -37,73 +35,32 @@ namespace TrabalhoFinalASW
             return result;
         }
 
-        public async Task<IdentityUser> FindUser(string userName, string password)
+        public async Task<SimpleUser> FindUser(string userName, string password)
         {
-            IdentityUser user = await _userManager.FindAsync(userName, password);
+            SimpleUser user = await _userManager.FindAsync(userName, password);
 
             return user;
         }
 
-        public Client FindClient(string clientId)
+        //public Client FindClient(string clientId)
+        //{
+        //    var client = _ctx.Clients.Find(clientId);
+
+        //    return client;
+        //}
+
+        
+
+
+     
+        public async Task<SimpleUser> FindAsync(UserLoginInfo loginInfo)
         {
-            var client = _ctx.Clients.Find(clientId);
-
-            return client;
-        }
-
-        public async Task<bool> AddRefreshToken(RefreshToken token)
-        {
-
-           var existingToken = _ctx.RefreshTokens.Where(r => r.Subject == token.Subject && r.ClientId == token.ClientId).SingleOrDefault();
-
-           if (existingToken != null)
-           {
-             var result = await RemoveRefreshToken(existingToken);
-           }
-          
-            _ctx.RefreshTokens.Add(token);
-
-            return await _ctx.SaveChangesAsync() > 0;
-        }
-
-        public async Task<bool> RemoveRefreshToken(string refreshTokenId)
-        {
-           var refreshToken = await _ctx.RefreshTokens.FindAsync(refreshTokenId);
-
-           if (refreshToken != null) {
-               _ctx.RefreshTokens.Remove(refreshToken);
-               return await _ctx.SaveChangesAsync() > 0;
-           }
-
-           return false;
-        }
-
-        public async Task<bool> RemoveRefreshToken(RefreshToken refreshToken)
-        {
-            _ctx.RefreshTokens.Remove(refreshToken);
-             return await _ctx.SaveChangesAsync() > 0;
-        }
-
-        public async Task<RefreshToken> FindRefreshToken(string refreshTokenId)
-        {
-            var refreshToken = await _ctx.RefreshTokens.FindAsync(refreshTokenId);
-
-            return refreshToken;
-        }
-
-        public List<RefreshToken> GetAllRefreshTokens()
-        {
-             return  _ctx.RefreshTokens.ToList();
-        }
-
-        public async Task<IdentityUser> FindAsync(UserLoginInfo loginInfo)
-        {
-            IdentityUser user = await _userManager.FindAsync(loginInfo);
+            SimpleUser user = await _userManager.FindAsync(loginInfo);
 
             return user;
         }
 
-        public async Task<IdentityResult> CreateAsync(IdentityUser user)
+        public async Task<IdentityResult> CreateAsync(SimpleUser user)
         {
             var result = await _userManager.CreateAsync(user);
 
@@ -119,7 +76,6 @@ namespace TrabalhoFinalASW
 
         public void Dispose()
         {
-            _ctx.Dispose();
             _userManager.Dispose();
 
         }

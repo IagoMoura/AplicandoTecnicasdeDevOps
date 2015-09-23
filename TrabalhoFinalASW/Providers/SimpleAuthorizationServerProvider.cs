@@ -8,6 +8,8 @@ using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using System.Web;
+using TrabalhoFinalASW.Models;
+using TrabalhoFinalASW.App_Start;
 
 namespace TrabalhoFinalASW.Providers
 {
@@ -33,11 +35,10 @@ namespace TrabalhoFinalASW.Providers
                 //context.SetError("invalid_clientId", "ClientId should be sent.");
                 return Task.FromResult<object>(null);
             }
-
-            using (AuthRepository _repo = new AuthRepository())
-            {
-                client = _repo.FindClient(context.ClientId);
-            }
+            
+            
+                client = Repository.Clients.Find( c=>c.Id == context.ClientId);
+            
 
             if (client == null)
             {
@@ -86,11 +87,11 @@ namespace TrabalhoFinalASW.Providers
 
             using (AuthRepository _repo = new AuthRepository())
             {
-                IdentityUser user = await _repo.FindUser(context.UserName, context.Password);
+                SimpleUser user = await _repo.FindUser(context.UserName, context.Password);
 
                 if (user == null)
                 {
-                    context.SetError("invalid_grant", "The user name or password is incorrect.");
+                    context.SetError("invalid_grant", "1The user name or password is incorrect.");
                     return;
                 }
             }
@@ -102,10 +103,10 @@ namespace TrabalhoFinalASW.Providers
 
             var props = new AuthenticationProperties(new Dictionary<string, string>
                 {
-                    { 
+                    {
                         "as:client_id", (context.ClientId == null) ? string.Empty : context.ClientId
                     },
-                    { 
+                    {
                         "userName", context.UserName
                     }
                 });

@@ -12,8 +12,8 @@ app.factory('notasService', ['$http', 'ngAuthSettings', function ($http, ngAuthS
         });
     };
 
-    ordersServiceFactory.getNotas = _getNotas;
+    NotasServiceFactory.getNotas = _getNotas;
 
-    return ordersServiceFactory;
+    return NotasServiceFactory;
 
 }]);

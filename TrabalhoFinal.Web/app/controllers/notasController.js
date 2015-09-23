@@ -1,9 +1,9 @@
 ﻿'use strict';
-app.controller('notasController', ['$scope', 'notasService', function ($scope, ordersService) {
+app.controller('notasController', ['$scope', 'notasService', function ($scope, notasService) {
 
-    $scope.orders = [];
+    $scope.notas = [];
 
-    notasService.getnotas().then(function (results) {
+    notasService.getNotas().then(function (results) {
 
         $scope.notas = results.data;
 
