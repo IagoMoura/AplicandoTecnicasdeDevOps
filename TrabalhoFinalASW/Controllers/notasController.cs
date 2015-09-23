@@ -27,6 +27,23 @@ namespace TrabalhoFinalASW.Controllers
             }
             return Ok(Notas.CreateNotas());
         }
+        
+        [AllowAnonymous]
+        [Route("/Notas/Test")]
+        public IHttpActionResult Get()
+        {
+            //ClaimsPrincipal principal = Request.GetRequestContext().Principal as ClaimsPrincipal;
+
+            var Name = ClaimsPrincipal.Current.Identity.Name;
+            //var Name1 = User.Identity.Name;
+
+            //var userName = principal.Claims.Where(c => c.Type == "sub").Single().Value;
+            if (Name == "Aluno")
+            {
+                return Ok(Notas.CreateNotasALuno());
+            }
+            return Ok(Notas.CreateNotas());
+        }
 
     }
 
