@@ -30,7 +30,7 @@ namespace TrabalhoFinalASW.Controllers
         
         [AllowAnonymous]
         [Route("Notas/Test")]
-        public IHttpActionResult Get()
+        public IHttpActionResult Get(int id)
         {
             //ClaimsPrincipal principal = Request.GetRequestContext().Principal as ClaimsPrincipal;
 
