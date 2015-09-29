@@ -18,8 +18,8 @@ namespace TrabalhoFinalASW.Models
         {
             Users.Add(new SimpleUser()
             {
-                UserName = "Professor",
-                Id = "Professor",
+                UserName = "Coordenador",
+                Id = "Coordenador",
                 PasswordHash = "AMe3/dcKmSbiJGcVFp0D8GU9ZJNGUffVa8CZLXLAV9PVvY0yi36HzPI0UBSqEDIE2A=="
             });
 
