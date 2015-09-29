@@ -1,4 +1,4 @@
-﻿sing TrabalhoFinalASW.Models;
+﻿using TrabalhoFinalASW.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
