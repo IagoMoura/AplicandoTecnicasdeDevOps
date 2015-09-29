@@ -4,7 +4,7 @@ using TrabalhoFinalASW.Models;
 
 namespace TrabalhoFinalASW
 {
-    public class SimpleUser : IUser
+    public class SimpleUserNew : IUser
     {
         public string Id { get; set; }
         public string UserName { get; set; }
