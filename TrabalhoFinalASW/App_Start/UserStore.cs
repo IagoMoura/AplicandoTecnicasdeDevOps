@@ -16,7 +16,8 @@ namespace TrabalhoFinalASW.App_Start
         public string Id { get; set; }
         public string UserName { get; set; }
         public string PasswordHash { get; set; }
-         
+        public AccessType Type { get; internal set; }
+
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<SimpleUser> manager)
         {
             var userIdentity = await manager.CreateIdentityAsync(this, DefaultAuthenticationTypes.ApplicationCookie);
