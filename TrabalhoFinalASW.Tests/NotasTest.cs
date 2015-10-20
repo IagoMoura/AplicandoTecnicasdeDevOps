@@ -21,6 +21,8 @@ namespace TrabalhoFinalASW.Tests
 
             //// Assert
             Assert.IsInstanceOfType(result, typeof(OkNegotiatedContentResult<List<TrabalhoFinalASW.Controllers.Notas>>));
+
+            Assert.IsTrue(1 == 1);
         }
     }
 }
