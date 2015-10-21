@@ -15,7 +15,8 @@ namespace TrabalhoFinalASW
 
     public class AuthRepository : IDisposable
     {
-      
+
+        //teste
         private UserManager<SimpleUser> _userManager;
 
         public AuthRepository()
@@ -49,10 +50,10 @@ namespace TrabalhoFinalASW
         //    return client;
         //}
 
-        
 
 
-     
+
+
         public async Task<SimpleUser> FindAsync(UserLoginInfo loginInfo)
         {
             SimpleUser user = await _userManager.FindAsync(loginInfo);
