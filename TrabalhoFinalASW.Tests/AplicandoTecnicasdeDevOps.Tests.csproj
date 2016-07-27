@@ -121,7 +121,8 @@
     <Reference Include="System.Xml" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Web.Services" />
-    <Reference Include="System.EnterpriseServices" /> </ItemGroup>
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
   <Choose>
     <When Condition="('$(VisualStudioVersion)' == '10.0' or '$(VisualStudioVersion)' == '') and '$(TargetFrameworkVersion)' == 'v3.5'">
       <ItemGroup>
@@ -139,9 +140,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\TrabalhoFinalASW\TrabalhoFinalASW.csproj">
+    <ProjectReference Include="..\TrabalhoFinalASW\AplicandoTecnicasdeDevOps.Web.csproj">
       <Project>{23dfcfd5-b158-4c0d-9c31-5e9cb64c64cf}</Project>
-      <Name>TrabalhoFinalASW</Name>
+      <Name>AplicandoTecnicasdeDevOps.Web</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

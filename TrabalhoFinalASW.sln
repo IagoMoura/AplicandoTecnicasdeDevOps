@@ -1,11 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.23107.0
+VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TrabalhoFinalASW", "TrabalhoFinalASW\TrabalhoFinalASW.csproj", "{23DFCFD5-B158-4C0D-9C31-5E9CB64C64CF}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AplicandoTecnicasdeDevOps.Web", "TrabalhoFinalASW\AplicandoTecnicasdeDevOps.Web.csproj", "{23DFCFD5-B158-4C0D-9C31-5E9CB64C64CF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TrabalhoFinalASW.Tests", "TrabalhoFinalASW.Tests\TrabalhoFinalASW.Tests.csproj", "{42D6EFF7-13F6-4E6B-9FC2-03A36E89ABCC}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AplicandoTecnicasdeDevOps.Tests", "TrabalhoFinalASW.Tests\AplicandoTecnicasdeDevOps.Tests.csproj", "{42D6EFF7-13F6-4E6B-9FC2-03A36E89ABCC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
